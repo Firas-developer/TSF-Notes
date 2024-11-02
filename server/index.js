@@ -13,6 +13,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use('/',(req,res)=>{
+    res.send("Server is Running Successfully...")
+})
+
 // Database connection with MongoDB Atlas
 mongoose.connect(config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB Connected"))
