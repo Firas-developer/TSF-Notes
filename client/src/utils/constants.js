@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://tsf-notes-server-psi.vercel.app'
+export const BASE_URL = 'https://tsf-notes-server-psi.vercel.app/'
