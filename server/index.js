@@ -13,10 +13,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/',(req,res)=>{
-    res.send("Server is Running Successfully...")
-})
-
 // Database connection with MongoDB Atlas
 mongoose.connect(config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB Connected"))
@@ -30,9 +26,9 @@ app.post('/create-account', async (req, res) => {
         return res.status(400).json({ error: true, message: "All fields are required" });
     }
 
-    const isUser = await User.findOne({ email });
-    if (isUser) {
-        return res.status(400).json({ error: true, message: "User already exists" });
+    const isUser  = await User.findOne({ email });
+    if (isUser ) {
+        return res.status(400).json({ error: true, message: "User  already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
